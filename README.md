@@ -1,1 +1,1 @@
-# Student-Teacher--Management-System
+# Student-Teacher-Management

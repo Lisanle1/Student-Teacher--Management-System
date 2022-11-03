@@ -14,12 +14,10 @@ function Teachers() {
         setData(res.data)
      }
      const deleteteacher = async (id) => {
-        let ask = window.confirm("Do you want to delete!!")
-        if (ask) {
           let res=await axios.delete(`https://628deacca339dfef87a35012.mockapi.io/users/${id}`)
         const user=data.filter((e)=>e.id !== res.data.id)
         setData(user)
-        }
+         
       }
   return (
     <div class="card shadow mb-4">

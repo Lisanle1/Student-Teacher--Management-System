@@ -1,9 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
-
 import "../src/sb-admin-2.min.css"
-
-import ReactDOM from "react-dom/client";
 import Dashboard from './Dashboard';
 import {
   BrowserRouter,

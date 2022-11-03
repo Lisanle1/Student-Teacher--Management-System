@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios";
-import { useParams } from 'react-router-dom';
+import { useParams,useNavigate } from 'react-router-dom';
 
 function Sview() {
+  const navigate=useNavigate();
   const [data, setData] = useState([])
   let params = useParams()
   useEffect(() => {
@@ -22,7 +23,8 @@ function Sview() {
         <li class="list-group-item">{`Subject-2 : ${data.subject2}`}</li>
         <li class="list-group-item">{`Subject-3 : ${data.subject3}`}</li>
         <li class="list-group-item">{`Teacher : ${data.teacher}`}</li>
-      </ul>
+      </ul><br/>
+      <button className="btn-sm btn-primary ml-1 " onClick={()=>navigate(-1)}>Go back</button>
     </div>
   )
 }

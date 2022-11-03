@@ -18,12 +18,9 @@ function Createstudent() {
         validate: (values) => {
             let errors = {}
             if (!values.studentName) {
-                errors.sname = "please enter the name"
+                errors.studentName = "please enter the name"
             } else if (values.studentName.length < 5) {
-                errors.sname = "length should be more than 5 chars "
-            }
-            if (!values.standard) {
-                errors.standard = "please select the standard"
+                errors.studentName = "length should be more than 5 chars "
             }
             if (!values.teacher) {
                 errors.teacher = "please enter the teacher name"
@@ -36,9 +33,9 @@ function Createstudent() {
         }
     })
     useEffect(() => {
-        fetchdata()
+        getData()
     }, []);
-    let fetchdata = async () => {
+    let getData = async () => {
         let res = await axios.get("https://628deacca339dfef87a35012.mockapi.io/users");
        
         setData(res.data);
@@ -51,7 +48,7 @@ function Createstudent() {
                         <label>Name:</label>
                         <input type="text" className='form-control' name='studentName' onChange={formik.handleChange} value={formik.values.studentName}></input>
                         {
-                            formik.errors.studentName ? <span>{formik.errors.studentName}</span> : null
+                            formik.errors.studentName ? <span style={{color:'red'}}>{formik.errors.studentName}</span> : null
                         }
                     </div>
 
@@ -109,19 +106,18 @@ function Createstudent() {
                     <div className='col-lg-8'>
                         <label>Teacher:</label>
                         <select className='form-control' name='teacher' onChange={formik.handleChange} value={formik.values.teacher}>
-                           
+                        <option value="">select teacher</option>
+                        {
+                            formik.errors.teacher ? <span style={{color:'red'}}>{formik.errors.teacher}</span> : null
+                        }
                             {
                                 data.map((data) => {
                                     return  <option value={data.teacherName}>{`${data.teacherName}`}</option>
                                     
                                 })
                             }
-                           
-
                         </select>
-                        {
-                            formik.errors.teacher ? <span>{formik.errors.teacher}</span> : null
-                        }
+                       
                     </div>
                     <div className="col-lg-12">
                         <input type="submit" value="Submit" className="btn btn-primary text-center mt-4" disabled={!formik.isValid}></input>

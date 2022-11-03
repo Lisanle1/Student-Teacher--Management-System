@@ -6,7 +6,7 @@ function Dashboard() {
   let dataa = useContext(Ucont);
   let tdata=useContext(Ucont)
   useEffect(() => {
-    fetchdata()
+    fetchdata() 
   }, []);
   let fetchdata = async () => {
     let a = await axios.get("https://63629b4a66f75177ea340461.mockapi.io/students");

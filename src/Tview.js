@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios";
-import { useParams } from 'react-router-dom';
+import { useParams,useNavigate } from 'react-router-dom';
 function Tview() {
+  const navigate=useNavigate();
   const [data, setData] = useState([]) 
   let params = useParams()
   useEffect(() => {
@@ -21,7 +22,8 @@ function Tview() {
         <li class="list-group-item">{`Subject-2 : ${data.subject2}`}</li>
         <li class="list-group-item">{`Salary : ${data.salary}`}</li>
         <li class="list-group-item">{`Start-Date : ${data.startDate}`}</li>
-      </ul>
+      </ul><br/>
+      <button className="btn-sm btn-primary ml-1 " onClick={()=>navigate(-1)}>Go back</button>
     </div>
   )
 }

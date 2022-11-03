@@ -1,17 +1,17 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 function Sidebar() {
    
     return (
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <Link to='/portal/dashboard' class="sidebar-brand d-flex align-items-center justify-content-center">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
             <div class="sidebar-brand-text mx-3">School Management</div>
-        </a>
+        </Link>
 
        
         <hr class="sidebar-divider my-0"/>

@@ -17,17 +17,11 @@ function Createteacher() {
         validate:(values) => {
             let errors = {}
             if (!values.teacherName) {
-                errors.sname = "please enter the name"
+                errors.teacherName = "please enter the name"
             } else if (values.teacherName.length < 5) {
-                errors.sname = "length should be more than 5 chars "
+                errors.teacherName = "length should be more than 5 chars "
             }
-            if(!values.position){
-                errors.standard="please select the standard"
-            }
-            if (!values.salary) {
-                errors.teacher = "please enter the teacher name"
-            return errors
-            }
+          return errors;
         },
         onSubmit: (values) => {
             axios.post("https://628deacca339dfef87a35012.mockapi.io/users", values);
@@ -43,7 +37,7 @@ function Createteacher() {
                 <label>Name:</label>
                 <input type="text" className='form-control' name='teacherName' onChange={formik.handleChange} value={formik.values.teacherName}></input>
                 {
-                  formik.errors.teacherName ? <span>{formik.errors.teacherName}</span> : null
+                  formik.errors.teacherName ? <span style={{color:'red'}}>{formik.errors.teacherName}</span> : null
                 }
             </div>
             <div className='col-lg-8'>
@@ -54,9 +48,7 @@ function Createteacher() {
                     <option value="Permanent staff">Permanent staff</option>
                     <option value="HOD">HOD</option>
                 </select>
-                {
-                  formik.errors.position ? <span>{formik.errors.position}</span> : null
-                }
+              
             </div>
             <div className='col-lg-8'>
                 <label>Subject-1:</label>
@@ -84,7 +76,7 @@ function Createteacher() {
                 <label>Salary:</label>
                 <input type="text" className='form-control' name='salary' onChange={formik.handleChange} value={formik.values.salary}></input>
                 {
-                  formik.errors.salary ? <span>{formik.errors.salary}</span> : null
+                  formik.errors.salary ? <span style={{color:'red'}}>{formik.errors.salary}</span> : null
                 }
             </div>
             <div className='col-lg-8'>
